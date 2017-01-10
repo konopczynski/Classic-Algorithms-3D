@@ -10,8 +10,6 @@ import numpy as np
 from scipy import ndimage
 
 
-#############################################################################
-
 def compute_harris_response(image):
     """ compute the Harris corner detector response function 
         for each pixel in the image"""
@@ -21,8 +19,6 @@ def compute_harris_response(image):
     Wtr  = Wxx + Wyy
 
     return Wdet / Wtr
-
-#############################################################################
 
 def StrTensor2D(I,sigma=1.0):
     s = round(3.0*sigma)
@@ -64,8 +60,6 @@ def Coherency_J2D(Ixx,Ixy,Iyy):
 def Energy2D(Ixx,Ixy,Iyy):
     E=Ixx+Iyy
     return E
-
-################################################
 
 def StrTensor3D(I,sigma=1.0):
     # Make kernel coordinates
@@ -118,7 +112,6 @@ def StrTensor3D(I,sigma=1.0):
     Iyz3 = ndimage.convolve1d(Iyz2,Gauss,axis=1)
     Iyz  = ndimage.convolve1d(Iyz3,Gauss,axis=2)
 
-    #return [Ixx,Iyy,Izz,Ixy,Ixz,Iyz]
     return [Ixx1,Iyy1,Izz1,Ixy1,Ixz1,Iyz1]
 
 def det3d_B(Bxx,Byy,Bzz,Bxy,Bxz,Byz):
